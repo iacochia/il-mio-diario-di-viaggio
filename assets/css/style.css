@@ -1,16 +1,15 @@
 /* ==========================================
-   COLORI PERSONALIZZATI
+   COLORI PERSONALIZZATI & STILE VINTAGE
    ========================================== */
 :root {
-  --bg-pagina: #2e2f32;          /* Sfondo scuro principale */
-  --bg-card: #3a3b3e;            /* Sfondo leggermente più chiaro per le schede */
-  --testo-principale: #f8f0e5;   /* Colore scritte principali */
-  --testo-mutato: #c5beba;       /* Colore per date e dettagli (versione soft) */
-  --verde-accento: #8ba888;      /* Verde soft per titoli e dettagli */
-  --bordo-soft: #444548;         /* Bordo delicato per dividere i contenuti */
+  --bg-pagina: #2d332a;          /* Verde Rangitoto (Sfondo principale) */
+  --bg-card: #373e33;            /* Verde Rangitoto leggermente più chiaro per le schede */
+  --testo-principale: #e3d8c8;   /* Panna più scuro/caldo per i titoli e i testi */
+  --testo-secondario: #b5ab9e;   /* Panna morbido/nocciola per date, luoghi e sottotitoli */
+  --bordo-delicato: #434c3e;     /* Linee sottili coordinati col verde */
 }
 
-/* Base */
+/* Reset base */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -27,19 +26,20 @@ body {
 .site-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 20px 60px 20px;
 }
 
-/* Intestazione */
+/* Intestazione (Spostata leggermente più in basso) */
 .site-header {
   text-align: center;
+  margin-top: 60px;              /* Spinge il titolo più in basso rispetto all'inizio pagina */
   padding-bottom: 30px;
-  border-bottom: 1px solid var(--bordo-soft);
+  border-bottom: 1px solid var(--bordo-delicato);
   margin-bottom: 40px;
 }
 
 .site-title {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   color: var(--testo-principale);
   margin: 0 0 10px 0;
   font-weight: normal;
@@ -47,7 +47,7 @@ body {
 }
 
 .site-subtitle {
-  color: var(--testo-mutato);
+  color: var(--testo-secondario);
   font-style: italic;
   margin: 0;
   font-size: 1.1rem;
@@ -63,17 +63,17 @@ body {
 /* Singola Box Post */
 .post-card {
   background-color: var(--bg-card);
-  border: 1px solid var(--bordo-soft);
+  border: 1px solid var(--bordo-delicato);
   border-radius: 8px;
-  padding: 20px;
+  padding: 22px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .post-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-  border-color: var(--verde-accento);
+  border-color: var(--testo-principale);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 .post-card-title {
@@ -85,15 +85,15 @@ body {
 
 .post-card-meta {
   font-size: 0.85rem;
-  color: var(--testo-mutato);
+  color: var(--testo-secondario);
   display: flex;
   justify-content: space-between;
 }
 
-/* Messaggio Stato Vuoto (se non ci sono post) */
+/* Stato Vuoto */
 .empty-state {
   text-align: center;
-  color: var(--testo-mutato);
+  color: var(--testo-secondario);
   font-style: italic;
   padding: 40px 0;
   grid-column: 1 / -1;
@@ -105,7 +105,7 @@ body {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(3px);
   justify-content: center;
   align-items: center;
@@ -127,8 +127,7 @@ body {
   overflow-y: auto;
   padding: 35px;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border-top: 4px solid var(--verde-accento);
+  border: 1px solid var(--bordo-delicato);
 }
 
 .close-btn {
@@ -139,7 +138,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--testo-mutato);
+  color: var(--testo-secondario);
 }
 
 .close-btn:hover {
@@ -147,7 +146,7 @@ body {
 }
 
 .modal-meta {
-  color: var(--verde-accento);
+  color: var(--testo-secondario);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
