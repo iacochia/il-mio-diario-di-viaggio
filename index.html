@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il mio diario di viaggio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="site-container">
+    <!-- Intestazione -->
+    <header class="site-header">
+      <h1 class="site-title">Il mio diario di viaggio</h1>
+      <p class="site-subtitle">Appunti, storie e ricordi in giro per il mondo</p>
+    </header>
+
+    <!-- Griglia dove appariranno le box dei post -->
+    <main id="posts-container" class="posts-grid">
+      <!-- Le box verranno inserite automaticamente qui -->
+    </main>
+  </div>
+
+  <!-- Finestra modale per leggere il post completo -->
+  <div id="post-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-btn" onclick="chiudiPost()" aria-label="Chiudi">&times;</button>
+      <div id="modal-meta" class="modal-meta"></div>
+      <h2 id="modal-title" class="modal-title"></h2>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
