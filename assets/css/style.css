@@ -1,0 +1,164 @@
+/* ==========================================
+   COLORI PERSONALIZZATI
+   ========================================== */
+:root {
+  --bg-pagina: #2e2f32;          /* Sfondo scuro principale */
+  --bg-card: #3a3b3e;            /* Sfondo leggermente più chiaro per le schede */
+  --testo-principale: #f8f0e5;   /* Colore scritte principali */
+  --testo-mutato: #c5beba;       /* Colore per date e dettagli (versione soft) */
+  --verde-accento: #8ba888;      /* Verde soft per titoli e dettagli */
+  --bordo-soft: #444548;         /* Bordo delicato per dividere i contenuti */
+}
+
+/* Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: var(--bg-pagina);
+  color: var(--testo-principale);
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+}
+
+.site-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Intestazione */
+.site-header {
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--bordo-soft);
+  margin-bottom: 40px;
+}
+
+.site-title {
+  font-size: 2.5rem;
+  color: var(--testo-principale);
+  margin: 0 0 10px 0;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.site-subtitle {
+  color: var(--testo-mutato);
+  font-style: italic;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Griglia Box Post */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Singola Box Post */
+.post-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--bordo-soft);
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  border-color: var(--verde-accento);
+}
+
+.post-card-title {
+  font-size: 1.25rem;
+  margin: 0 0 12px 0;
+  color: var(--testo-principale);
+  font-weight: normal;
+}
+
+.post-card-meta {
+  font-size: 0.85rem;
+  color: var(--testo-mutato);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Messaggio Stato Vuoto (se non ci sono post) */
+.empty-state {
+  text-align: center;
+  color: var(--testo-mutato);
+  font-style: italic;
+  padding: 40px 0;
+  grid-column: 1 / -1;
+}
+
+/* Finestra di lettura (Modal) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  color: var(--testo-principale);
+  border-radius: 10px;
+  max-width: 650px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 35px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-top: 4px solid var(--verde-accento);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--testo-mutato);
+}
+
+.close-btn:hover {
+  color: var(--testo-principale);
+}
+
+.modal-meta {
+  color: var(--verde-accento);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-title {
+  margin: 8px 0 20px 0;
+  font-weight: normal;
+  color: var(--testo-principale);
+}
+
+.modal-body p {
+  margin-bottom: 1.2em;
+}
