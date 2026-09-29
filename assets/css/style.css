@@ -25,10 +25,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Container centrale dei contenuti con margine a sinistra per lasciare spazio al lampione */
+/* Container centrale dei contenuti (centrato) */
 .site-container {
   max-width: 850px;
-  margin: 0 auto 0 220px; /* Lascia 220px libero a sinistra per lampione4.png */
+  margin: 0 auto;
   padding: 40px 20px 80px 20px;
   position: relative;
   z-index: 2;
@@ -38,9 +38,9 @@ body {
    2. REGOLE PER RENDERE TUTTE LE GRAFICHE DEL COLORE PANNA (#e3d8c8)
    ========================================================================== */
 
-/* Applica il colore panna panna esatto (#e3d8c8) a tutte le PNG come maschere */
+/* Applica il colore panna esatto (#e3d8c8) a tutte le PNG come maschere */
 .decorazione-angolo,
-.decorazione-lampione-lungo,
+.decorazione-basso-sinistra,
 .divisore-decorativo {
   background-color: var(--testo-principale); /* Stesso colore della scrittura */
   -webkit-mask-repeat: no-repeat;
@@ -50,19 +50,18 @@ body {
   display: block;
 }
 
-/* LAMPIONE 4 (A SINISTRA, ACCANTO AL CONTENUTO, CON ARIA SOPRA E SOTTO) */
-.decorazione-lampione-lungo {
+/* LAMPIONE 4 (IN BASSO A SINISTRA) */
+.decorazione-basso-sinistra {
   position: fixed;
-  left: 30px;
-  top: 8vh;
-  height: 84vh;
+  left: 15px;
+  bottom: 15px;
   width: 140px;
+  height: 350px;
   z-index: 1;
-  /* Utilizza il file PNG come maschera */
   -webkit-mask-image: url('../image/lampione4.png');
   mask-image: url('../image/lampione4.png');
-  -webkit-mask-position: center left;
-  mask-position: center left;
+  -webkit-mask-position: bottom left;
+  mask-position: bottom left;
 }
 
 /* ALTO A DESTRA (decorazione2.PNG) */
@@ -245,13 +244,12 @@ body {
 /* ==========================================================================
    4. ADATTAMENTO DISPOSITIVI MOBILI (SMARTPHONE)
    ========================================================================== */
-@media (max-width: 900px) {
-  .site-container {
-    margin: 0 auto; /* Centra il contenuto su schermi piccoli */
-    padding: 20px;
-  }
-
-  .decorazione-lampione-lungo {
-    display: none; /* Nasconde il lampione laterale su smartphone per non stringere i testi */
+@media (max-width: 600px) {
+  .decorazione-basso-sinistra,
+  .decorazione-alto-destra,
+  .decorazione-inchiostro {
+    width: 90px;
+    height: 90px;
+    opacity: 0.6;
   }
 }
