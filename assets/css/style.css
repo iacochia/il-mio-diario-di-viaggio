@@ -246,26 +246,32 @@ body {
   }
 
 /* ==========================================================================
-   GRAFICHE DECORATIVE AI 4 ANGOLI (SFONDO FISSO)
+   GRAFICHE DECORATIVE E TINTA PANNA (#e3d8c8)
    ========================================================================== */
-.decorazione-angolo {
+
+/* Regola per uniformare il colore di tutte le PNG al colore panna della scrittura */
+.decorazione-angolo,
+.decorazione-lampione-lungo,
+.divisore-decorativo {
   position: fixed;
   z-index: 999;
   pointer-events: none;
-  opacity: 1;
   user-select: none;
-  display: block;
+  /* Converte il colore originale delle immagini nel panna/crema #e3d8c8 */
+  filter: invert(88%) sepia(10%) saturate(450%) hue-rotate(345deg) brightness(95%) contrast(88%);
+  opacity: 0.9;
 }
 
-/* Alto a Sinistra: Lampione (lampione.png) */
-.decorazione-lampione {
-  top: 10px;
-  left: 10px;
-  width: 130px;
-  height: auto;
+/* LAMPIONE 4 (Lato sinistro, esteso in altezza con aria sopra e sotto) */
+.decorazione-lampione-lungo {
+  left: 15px;
+  top: 10vh;             /* Aria del 10% in alto */
+  height: 80vh;          /* Copre l'80% dell'altezza dello schermo */
+  width: auto;
+  object-fit: contain;
 }
 
-/* Alto a Destra: Decorazione 2 (decorazione2.PNG) */
+/* Alto a Destra: Decorazione 2 */
 .decorazione-alto-destra {
   top: 10px;
   right: 10px;
@@ -273,20 +279,31 @@ body {
   height: auto;
 }
 
-/* Basso a Sinistra: Decorazione 1 (decorazione1.png) */
-.decorazione-basso-sinistra {
-  bottom: 10px;
-  left: 10px;
-  width: 140px;
-  height: auto;
-}
-
-/* Basso a Destra: Inchiostro (inchiostro3.png) */
+/* Basso a Destra: Inchiostro 3 */
 .decorazione-inchiostro {
   bottom: 10px;
   right: 10px;
   width: 140px;
   height: auto;
+}
+
+/* DIVISORE CENTRALE HEADER (decorazione3.png) */
+.divisore-decorativo {
+  position: relative;    /* Posizionato all'interno dell'header e non fisso */
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+/* Sugli schermi degli smartphone nascondiamo o riduciamo il lampione lungo per non coprire i testi */
+@media (max-width: 768px) {
+  .decorazione-lampione-lungo {
+    opacity: 0.3;
+    width: 60px;
+    height: auto;
+  }
 }
 
 /* ==========================================================================
