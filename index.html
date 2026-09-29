@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Il mio diario di viaggio</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=1000">
+  <link rel="stylesheet" href="assets/css/style.css?v=1001">
 </head>
 <body>
 
-  <!-- Grafiche decorative fisse ai 4 angoli (percorso: assets/image/) -->
-  <img src="assets/image/lampione.png" alt="" class="decorazione-angolo decorazione-lampione">
+  <!-- Lampione verticale sul lato sinistro (dal basso verso l'alto con margine) -->
+  <img src="assets/image/lampione4.png" alt="" class="decorazione-lampione-lungo">
+
+  <!-- Grafiche angolari a destra -->
   <img src="assets/image/decorazione2.PNG" alt="" class="decorazione-angolo decorazione-alto-destra">
-  <img src="assets/image/decorazione1.png" alt="" class="decorazione-angolo decorazione-basso-sinistra">
   <img src="assets/image/inchiostro3.png" alt="" class="decorazione-angolo decorazione-inchiostro">
 
   <div class="site-container">
@@ -23,10 +24,8 @@
       <img src="assets/image/decorazione3.png" alt="" class="divisore-decorativo">
     </header>
 
-    <!-- Griglia dove appariranno le box dei post -->
-    <main id="posts-container" class="posts-grid">
-      <!-- Le box verranno inserite automaticamente qui da script.js -->
-    </main>
+    <!-- Griglia dei post -->
+    <main id="posts-container" class="posts-grid"></main>
   </div>
 
   <!-- Finestra modale per leggere il post completo -->
@@ -39,7 +38,6 @@
     </div>
   </div>
 
-  <!-- Il file script.js è nella radice -->
   <script src="script.js"></script>
 </body>
 </html>
