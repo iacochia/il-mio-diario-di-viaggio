@@ -1,167 +1,168 @@
-/* ==========================================
-   COLORI PERSONALIZZATI & STILE VINTAGE
-   ========================================== */
-:root {
-  --bg-pagina: #2d332a;          /* Verde Rangitoto */
-  --bg-card: #373e33;            /* Verde schede */
-  --testo-principale: #e3d8c8;   /* Panna scuro/caldo */
-  --testo-secondario: #b5ab9e;   /* Panna nocciola soft */
-  --bordo-delicato: #434c3e;     /* Linee e bordi sottili */
-}
-
-/* Reset base */
-*, *::before, *::after {
+/* ==========================================================================
+   1. REGOLAZIONI BASE E SFONDO
+   ========================================================================== */
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Georgia', 'Times New Roman', serif;
-  background-color: var(--bg-pagina);
-  color: var(--testo-principale);
-  margin: 0;
-  padding: 0;
-  line-height: 1.7;
+  background-color: #fcf9f2; /* Tonalità carta di diario/vintage */
+  color: #2c2c2c;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
+/* Container principale del sito */
 .site-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 20px 20px 60px 20px;
+  padding: 40px 20px 80px 20px;
   position: relative;
-  z-index: 1; /* Mantiene il contenuto sopra le decorazioni di sfondo */
+  z-index: 2; /* Sta sopra le grafiche decorative di sfondo */
 }
 
-/* ==========================================
-   GRAFICHE DECORATIVE FISSE AI 4 ANGOLI
-   ========================================== */
-.decorazione-angolo {
-  position: fixed;
-  z-index: 0;
-  pointer-events: none; /* Impedisce che l'immagine blocchi i click */
-  max-width: 150px;     /* Dimensione massima regolabile */
-  height: auto;
-  opacity: 0.85;        /* Leggera trasparenza per integrarsi bene */
-}
-
-/* Alto a Sinistra: lampione.PNG */
-.decorazione-lampione {
-  top: 0;
-  left: 0;
-  max-width: 140px;
-}
-
-/* Alto a Destra: decorazione2.PNG */
-.decorazione-alto-destra {
-  top: 0;
-  right: 0;
-  max-width: 150px;
-}
-
-/* Basso a Sinistra: decorazione1.PNG */
-.decorazione-basso-sinistra {
-  bottom: 0;
-  left: 0;
-  max-width: 150px;
-}
-
-/* Basso a Destra: inchiostro.PNG */
-.decorazione-inchiostro {
-  bottom: 0;
-  right: 0;
-  max-width: 160px;
-}
-
-/* ==========================================
-   INTESTAZIONE (Senza riga, con decorazione3.PNG)
-   ========================================== */
+/* ==========================================================================
+   2. INTESTAZIONE ED ELEMENTI DECORATIVI
+   ========================================================================== */
 .site-header {
   text-align: center;
-  margin-top: 60px;
   margin-bottom: 40px;
-  padding-bottom: 10px;
-  /* Rimossa la riga border-bottom */
 }
 
 .site-title {
-  font-size: 2.6rem;
-  color: var(--testo-principale);
-  margin: 0 0 10px 0;
+  font-size: 2.8rem;
   font-weight: normal;
-  letter-spacing: 0.5px;
+  color: #3a2e2b;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .site-subtitle {
-  color: var(--testo-secondario);
-  font-style: italic;
-  margin: 0 0 20px 0;
   font-size: 1.1rem;
+  font-style: italic;
+  color: #6b5b52;
+  margin-bottom: 15px;
 }
 
-/* Immagine divisore che sostituisce la riga */
+/* Immagine divisore (decorazione3.png) */
 .divisore-decorativo {
+  max-width: 250px;
+  height: auto;
   display: block;
-  margin: 20px auto 0 auto;
-  max-width: 250px; /* Regola la larghezza del divisore se serve */
+  margin: 15px auto 0 auto;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   3. GRAFICHE DECORATIVE AI 4 ANGOLI (SFONDO FISSO)
+   ========================================================================== */
+.decorazione-angolo {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none; /* Non blocca i clic sugli elementi sottostanti */
+  opacity: 0.8;
+  user-select: none;
+}
+
+/* Alto a Sinistra: Lampione (lampione.png) */
+.decorazione-lampione {
+  top: 0;
+  left: 0;
+  width: 140px;
   height: auto;
 }
 
-/* ==========================================
-   GRIGLIA BOX POST & MODALE
-   ========================================== */
+/* Alto a Destra: Decorazione 2 (decorazione2.PNG) */
+.decorazione-alto-destra {
+  top: 0;
+  right: 0;
+  width: 160px;
+  height: auto;
+}
+
+/* Basso a Sinistra: Decorazione 1 (decorazione1.png) */
+.decorazione-basso-sinistra {
+  bottom: 0;
+  left: 0;
+  width: 160px;
+  height: auto;
+}
+
+/* Basso a Destra: Inchiostro (inchiostro3.png) */
+.decorazione-inchiostro {
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: auto;
+}
+
+/* ==========================================================================
+   4. GRIGLIA DEI POST (CARDS DIARIO)
+   ========================================================================== */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
+  gap: 25px;
+  margin-top: 20px;
 }
 
 .post-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--bordo-delicato);
+  background-color: #ffffff;
+  border: 1px solid #e2d9cc;
   border-radius: 8px;
-  padding: 22px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--testo-principale);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
-.post-card-title {
-  font-size: 1.25rem;
-  margin: 0 0 12px 0;
-  color: var(--testo-principale);
-  font-weight: normal;
-}
-
-.post-card-meta {
+.post-card .post-date {
   font-size: 0.85rem;
-  color: var(--testo-secondario);
-  display: flex;
-  justify-content: space-between;
-}
-
-.empty-state {
-  text-align: center;
-  color: var(--testo-secondario);
+  color: #8c7a6b;
+  margin-bottom: 8px;
   font-style: italic;
-  padding: 40px 0;
-  grid-column: 1 / -1;
 }
 
+.post-card .post-title {
+  font-size: 1.3rem;
+  color: #2b211e;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.post-card .post-preview {
+  font-size: 0.95rem;
+  color: #555;
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   5. FINESTRA MODALE (LETTURA POST COMPLETO)
+   ========================================================================== */
 .modal {
-  display: none;
+  display: none; /* Nascosta di default */
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(3px);
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .modal.active {
@@ -169,46 +170,67 @@ body {
 }
 
 .modal-content {
-  background: var(--bg-card);
-  color: var(--testo-principale);
+  background-color: #fffcf7;
+  border: 1px solid #dcd1c4;
   border-radius: 10px;
   max-width: 650px;
   width: 100%;
   max-height: 85vh;
   overflow-y: auto;
-  padding: 35px;
+  padding: 35px 30px;
   position: relative;
-  border: 1px solid var(--bordo-delicato);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .close-btn {
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 1.8rem;
   background: none;
   border: none;
+  font-size: 1.8rem;
+  color: #777;
   cursor: pointer;
-  color: var(--testo-secondario);
+  line-height: 1;
 }
 
 .close-btn:hover {
-  color: var(--testo-principale);
+  color: #000;
 }
 
 .modal-meta {
-  color: var(--testo-secondario);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 0.9rem;
+  color: #8c7a6b;
+  margin-bottom: 10px;
+  font-style: italic;
 }
 
 .modal-title {
-  margin: 8px 0 20px 0;
-  font-weight: normal;
-  color: var(--testo-principale);
+  font-size: 2rem;
+  color: #2b211e;
+  margin-bottom: 20px;
 }
 
-.modal-body p {
-  margin-bottom: 1.2em;
+.modal-body {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* ==========================================================================
+   6. ADATTAMENTO DISPOSITIVI MOBILI (SMARTPHONE)
+   ========================================================================== */
+@media (max-width: 600px) {
+  .site-title {
+    font-size: 2.1rem;
+  }
+
+  .decorazione-angolo {
+    width: 80px; /* Riduce le grafiche agli angoli su schermi piccoli */
+    opacity: 0.5;
+  }
+
+  .modal-content {
+    padding: 25px 18px;
+  }
 }
