@@ -2,11 +2,11 @@
    COLORI PERSONALIZZATI & STILE VINTAGE
    ========================================== */
 :root {
-  --bg-pagina: #2d332a;          /* Verde Rangitoto (Sfondo principale) */
-  --bg-card: #373e33;            /* Verde Rangitoto leggermente più chiaro per le schede */
-  --testo-principale: #e3d8c8;   /* Panna più scuro/caldo per i titoli e i testi */
-  --testo-secondario: #b5ab9e;   /* Panna morbido/nocciola per date, luoghi e sottotitoli */
-  --bordo-delicato: #434c3e;     /* Linee sottili coordinati col verde */
+  --bg-pagina: #2d332a;          /* Verde Rangitoto */
+  --bg-card: #373e33;            /* Verde schede */
+  --testo-principale: #e3d8c8;   /* Panna scuro/caldo */
+  --testo-secondario: #b5ab9e;   /* Panna nocciola soft */
+  --bordo-delicato: #434c3e;     /* Linee e bordi sottili */
 }
 
 /* Reset base */
@@ -27,15 +27,59 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px 20px 60px 20px;
+  position: relative;
+  z-index: 1; /* Mantiene il contenuto sopra le decorazioni di sfondo */
 }
 
-/* Intestazione (Spostata leggermente più in basso) */
+/* ==========================================
+   GRAFICHE DECORATIVE FISSE AI 4 ANGOLI
+   ========================================== */
+.decorazione-angolo {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none; /* Impedisce che l'immagine blocchi i click */
+  max-width: 150px;     /* Dimensione massima regolabile */
+  height: auto;
+  opacity: 0.85;        /* Leggera trasparenza per integrarsi bene */
+}
+
+/* Alto a Sinistra: lampione.PNG */
+.decorazione-lampione {
+  top: 0;
+  left: 0;
+  max-width: 140px;
+}
+
+/* Alto a Destra: decorazione2.PNG */
+.decorazione-alto-destra {
+  top: 0;
+  right: 0;
+  max-width: 150px;
+}
+
+/* Basso a Sinistra: decorazione1.PNG */
+.decorazione-basso-sinistra {
+  bottom: 0;
+  left: 0;
+  max-width: 150px;
+}
+
+/* Basso a Destra: inchiostro.PNG */
+.decorazione-inchiostro {
+  bottom: 0;
+  right: 0;
+  max-width: 160px;
+}
+
+/* ==========================================
+   INTESTAZIONE (Senza riga, con decorazione3.PNG)
+   ========================================== */
 .site-header {
   text-align: center;
-  margin-top: 60px;              /* Spinge il titolo più in basso rispetto all'inizio pagina */
-  padding-bottom: 30px;
-  border-bottom: 1px solid var(--bordo-delicato);
+  margin-top: 60px;
   margin-bottom: 40px;
+  padding-bottom: 10px;
+  /* Rimossa la riga border-bottom */
 }
 
 .site-title {
@@ -49,18 +93,27 @@ body {
 .site-subtitle {
   color: var(--testo-secondario);
   font-style: italic;
-  margin: 0;
+  margin: 0 0 20px 0;
   font-size: 1.1rem;
 }
 
-/* Griglia Box Post */
+/* Immagine divisore che sostituisce la riga */
+.divisore-decorativo {
+  display: block;
+  margin: 20px auto 0 auto;
+  max-width: 250px; /* Regola la larghezza del divisore se serve */
+  height: auto;
+}
+
+/* ==========================================
+   GRIGLIA BOX POST & MODALE
+   ========================================== */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
 
-/* Singola Box Post */
 .post-card {
   background-color: var(--bg-card);
   border: 1px solid var(--bordo-delicato);
@@ -90,7 +143,6 @@ body {
   justify-content: space-between;
 }
 
-/* Stato Vuoto */
 .empty-state {
   text-align: center;
   color: var(--testo-secondario);
@@ -99,7 +151,6 @@ body {
   grid-column: 1 / -1;
 }
 
-/* Finestra di lettura (Modal) */
 .modal {
   display: none;
   position: fixed;
