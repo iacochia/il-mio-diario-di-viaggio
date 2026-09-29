@@ -2,11 +2,11 @@
    1. REGOLAZIONI BASE E SFONDO (Verde Rangitoto + Panna)
    ========================================================================== */
 :root {
-  --bg-pagina: #2d332a;          /* Verde Rangitoto scuro per la pagina */
-  --bg-card: #373e33;            /* Verde Rangitoto leggermente più chiaro per le schede */
+  --bg-pagina: #2d332a;          /* Verde Rangitoto scuro */
+  --bg-card: #373e33;            /* Verde Rangitoto per le schede */
   --testo-principale: #e3d8c8;   /* Panna scuro/caldo */
-  --testo-secondario: #b5ab9e;   /* Panna morbido nocciola */
-  --bordo-delicato: #434c3e;     /* Linee e bordi sottili coordinati */
+  --testo-secondario: #b5ab9e;   /* Panna morbido */
+  --bordo-delicato: #434c3e;
 }
 
 * {
@@ -25,21 +25,92 @@ body {
   overflow-x: hidden;
 }
 
-/* Container principale del sito */
+/* Container centrale dei contenuti con margine a sinistra per lasciare spazio al lampione */
 .site-container {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 850px;
+  margin: 0 auto 0 220px; /* Lascia 220px libero a sinistra per lampione4.png */
   padding: 40px 20px 80px 20px;
   position: relative;
-  z-index: 2; /* Sta sopra le grafiche decorative di sfondo */
+  z-index: 2;
 }
 
 /* ==========================================================================
-   2. INTESTAZIONE ED ELEMENTI DECORATIVI
+   2. REGOLE PER RENDERE TUTTE LE GRAFICHE DEL COLORE PANNA (#e3d8c8)
+   ========================================================================== */
+
+/* Applica il colore panna panna esatto (#e3d8c8) a tutte le PNG come maschere */
+.decorazione-angolo,
+.decorazione-lampione-lungo,
+.divisore-decorativo {
+  background-color: var(--testo-principale); /* Stesso colore della scrittura */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  display: block;
+}
+
+/* LAMPIONE 4 (A SINISTRA, ACCANTO AL CONTENUTO, CON ARIA SOPRA E SOTTO) */
+.decorazione-lampione-lungo {
+  position: fixed;
+  left: 30px;
+  top: 8vh;
+  height: 84vh;
+  width: 140px;
+  z-index: 1;
+  /* Utilizza il file PNG come maschera */
+  -webkit-mask-image: url('../image/lampione4.png');
+  mask-image: url('../image/lampione4.png');
+  -webkit-mask-position: center left;
+  mask-position: center left;
+}
+
+/* ALTO A DESTRA (decorazione2.PNG) */
+.decorazione-alto-destra {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+  -webkit-mask-image: url('../image/decorazione2.PNG');
+  mask-image: url('../image/decorazione2.PNG');
+  -webkit-mask-position: top right;
+  mask-position: top right;
+}
+
+/* BASSO A DESTRA (inchiostro3.png) */
+.decorazione-inchiostro {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+  -webkit-mask-image: url('../image/inchiostro3.png');
+  mask-image: url('../image/inchiostro3.png');
+  -webkit-mask-position: bottom right;
+  mask-position: bottom right;
+}
+
+/* DIVISORE CENTRALE HEADER (decorazione3.png) */
+.divisore-decorativo {
+  position: relative;
+  max-width: 250px;
+  width: 100%;
+  height: 40px;
+  margin: 20px auto 0 auto;
+  -webkit-mask-image: url('../image/decorazione3.png');
+  mask-image: url('../image/decorazione3.png');
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* ==========================================================================
+   3. INTESTAZIONE E GRIGLIA POST
    ========================================================================== */
 .site-header {
   text-align: center;
-  margin-top: 40px;
   margin-bottom: 40px;
 }
 
@@ -58,61 +129,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* Immagine divisore (decorazione3.png) */
-.divisore-decorativo {
-  max-width: 250px;
-  height: auto;
-  display: block;
-  margin: 15px auto 0 auto;
-  opacity: 0.9;
-}
-
-/* ==========================================================================
-   3. GRAFICHE DECORATIVE AI 4 ANGOLI (SFONDO FISSO)
-   ========================================================================== */
-.decorazione-angolo {
-  position: fixed;
-  z-index: 1;
-  pointer-events: none; /* Non blocca i clic sui post */
-  opacity: 0.85;
-  user-select: none;
-}
-
-/* Alto a Sinistra: Lampione (lampione.png) */
-.decorazione-lampione {
-  top: 0;
-  left: 0;
-  width: 140px;
-  height: auto;
-}
-
-/* Alto a Destra: Decorazione 2 (decorazione2.PNG) */
-.decorazione-alto-destra {
-  top: 0;
-  right: 0;
-  width: 160px;
-  height: auto;
-}
-
-/* Basso a Sinistra: Decorazione 1 (decorazione1.png) */
-.decorazione-basso-sinistra {
-  bottom: 0;
-  left: 0;
-  width: 160px;
-  height: auto;
-}
-
-/* Basso a Destra: Inchiostro (inchiostro3.png) */
-.decorazione-inchiostro {
-  bottom: 0;
-  right: 0;
-  width: 150px;
-  height: auto;
-}
-
-/* ==========================================================================
-   4. GRIGLIA DEI POST (CARDS DIARIO)
-   ========================================================================== */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -157,9 +173,7 @@ body {
   flex-grow: 1;
 }
 
-/* ==========================================================================
-   5. FINESTRA MODALE (LETTURA POST COMPLETO)
-   ========================================================================== */
+/* FINESTRA MODALE */
 .modal {
   display: none;
   position: fixed;
@@ -229,91 +243,15 @@ body {
 }
 
 /* ==========================================================================
-   6. ADATTAMENTO DISPOSITIVI MOBILI (SMARTPHONE)
+   4. ADATTAMENTO DISPOSITIVI MOBILI (SMARTPHONE)
    ========================================================================== */
-@media (max-width: 600px) {
-  .site-title {
-    font-size: 2.1rem;
+@media (max-width: 900px) {
+  .site-container {
+    margin: 0 auto; /* Centra il contenuto su schermi piccoli */
+    padding: 20px;
   }
 
-  .decorazione-angolo {
-    width: 80px; /* Riduce le grafiche su schermi piccoli per non coprire il testo */
-    opacity: 0.6;
-  }
-
-  .modal-content {
-    padding: 25px 18px;
-  }
-
-/* ==========================================================================
-   GRAFICHE DECORATIVE E TINTA PANNA (#e3d8c8)
-   ========================================================================== */
-
-/* Regola per uniformare il colore di tutte le PNG al colore panna della scrittura */
-.decorazione-angolo,
-.decorazione-lampione-lungo,
-.divisore-decorativo {
-  position: fixed;
-  z-index: 999;
-  pointer-events: none;
-  user-select: none;
-  /* Converte il colore originale delle immagini nel panna/crema #e3d8c8 */
-  filter: invert(88%) sepia(10%) saturate(450%) hue-rotate(345deg) brightness(95%) contrast(88%);
-  opacity: 0.9;
-}
-
-/* LAMPIONE 4 (Lato sinistro, esteso in altezza con aria sopra e sotto) */
-.decorazione-lampione-lungo {
-  left: 15px;
-  top: 10vh;             /* Aria del 10% in alto */
-  height: 80vh;          /* Copre l'80% dell'altezza dello schermo */
-  width: auto;
-  object-fit: contain;
-}
-
-/* Alto a Destra: Decorazione 2 */
-.decorazione-alto-destra {
-  top: 10px;
-  right: 10px;
-  width: 140px;
-  height: auto;
-}
-
-/* Basso a Destra: Inchiostro 3 */
-.decorazione-inchiostro {
-  bottom: 10px;
-  right: 10px;
-  width: 140px;
-  height: auto;
-}
-
-/* DIVISORE CENTRALE HEADER (decorazione3.png) */
-.divisore-decorativo {
-  position: relative;    /* Posizionato all'interno dell'header e non fisso */
-  max-width: 250px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto 0 auto;
-}
-
-/* Sugli schermi degli smartphone nascondiamo o riduciamo il lampione lungo per non coprire i testi */
-@media (max-width: 768px) {
   .decorazione-lampione-lungo {
-    opacity: 0.3;
-    width: 60px;
-    height: auto;
+    display: none; /* Nasconde il lampione laterale su smartphone per non stringere i testi */
   }
-}
-
-/* ==========================================================================
-   DIVISORE CENTRALE HEADER (decorazione3.png)
-   ========================================================================== */
-.divisore-decorativo {
-  max-width: 250px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto 0 auto;
-  opacity: 0.9;
 }
