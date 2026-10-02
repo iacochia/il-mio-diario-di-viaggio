@@ -38,11 +38,11 @@ body {
    2. REGOLE PER LE GRAFICHE CON COLORE PANNA DORATO (#cfbd8c)
    ========================================================================== */
 
-.decorazione-piante,
+.decorazione-pianta,
 .decorazione-luce,
 .decorazione-valige,
 .decorazione-tazza,
-.divisore-luci {
+.luci-elemento {
   background-color: var(--testo-principale);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
@@ -51,27 +51,27 @@ body {
   display: block;
 }
 
-/* ALTO A DESTRA (piante1.png) */
-.decorazione-piante {
+/* ALTO A DESTRA: pianta3.png (combacia con il bordo della schermata) */
+.decorazione-pianta {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 150px;
-  height: 150px;
+  top: 0;
+  right: 0;
+  width: 180px;
+  height: 180px;
   z-index: 1;
-  -webkit-mask-image: url('../image/piante1.png');
-  mask-image: url('../image/piante1.png');
+  -webkit-mask-image: url('../image/pianta3.png');
+  mask-image: url('../image/pianta3.png');
   -webkit-mask-position: top right;
   mask-position: top right;
 }
 
-/* BASSO A SINISTRA (luce1.png) */
+/* BASSO A SINISTRA: luce1.png (più grande) */
 .decorazione-luce {
   position: fixed;
-  bottom: 10px;
-  left: 10px;
-  width: 150px;
-  height: 250px;
+  bottom: 0;
+  left: 0;
+  width: 220px;
+  height: 350px;
   z-index: 1;
   -webkit-mask-image: url('../image/luce1.png');
   mask-image: url('../image/luce1.png');
@@ -79,13 +79,13 @@ body {
   mask-position: bottom left;
 }
 
-/* BASSO A DESTRA (valige.png) */
+/* BASSO A DESTRA: valige.png (più grande) */
 .decorazione-valige {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
-  width: 160px;
-  height: 160px;
+  bottom: 0;
+  right: 0;
+  width: 240px;
+  height: 240px;
   z-index: 1;
   -webkit-mask-image: url('../image/valige.png');
   mask-image: url('../image/valige.png');
@@ -93,29 +93,53 @@ body {
   mask-position: bottom right;
 }
 
-/* SOPRA A VALIGE (tazza.png) */
+/* SOPRA A VALIGE: tazza.png (più piccola e spostata più a sinistra) */
 .decorazione-tazza {
   position: fixed;
-  bottom: 160px;
-  right: 25px;
-  width: 100px;
-  height: 100px;
+  bottom: 180px;
+  right: 170px;
+  width: 70px;
+  height: 70px;
   z-index: 1;
   -webkit-mask-image: url('../image/tazza.png');
   mask-image: url('../image/tazza.png');
-  -webkit-mask-position: bottom right;
-  mask-position: bottom right;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 
-/* SOTTO LA SCRITTA DIARIO DI VIAGGIO (luci2.png) */
-.divisore-luci {
-  position: relative;
-  max-width: 280px;
+/* FASCIA DIVISORIA LUCI (luci1.png - luci2.png - luci3.png) */
+.divisore-luci-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  max-width: 500px;
   width: 100%;
-  height: 50px;
   margin: 15px auto 0 auto;
+}
+
+.luci-elemento {
+  height: 45px;
+  flex: 1;
+}
+
+.luci-1 {
+  -webkit-mask-image: url('../image/luci1.png');
+  mask-image: url('../image/luci1.png');
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.luci-2 {
   -webkit-mask-image: url('../image/luci2.png');
   mask-image: url('../image/luci2.png');
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.luci-3 {
+  -webkit-mask-image: url('../image/luci3.png');
+  mask-image: url('../image/luci3.png');
   -webkit-mask-position: center;
   mask-position: center;
 }
@@ -260,17 +284,23 @@ body {
    4. ADATTAMENTO DISPOSITIVI MOBILI
    ========================================================================== */
 @media (max-width: 600px) {
-  .decorazione-piante,
+  .decorazione-pianta,
   .decorazione-luce,
-  .decorazione-valige,
-  .decorazione-tazza {
-    width: 80px;
-    height: 80px;
+  .decorazione-valige {
+    width: 110px;
+    height: 110px;
     opacity: 0.5;
   }
 
   .decorazione-tazza {
-    bottom: 90px;
-    right: 15px;
+    bottom: 100px;
+    right: 80px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .divisore-luci-container {
+    max-width: 300px;
+    gap: 5px;
   }
 }
