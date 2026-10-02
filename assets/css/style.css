@@ -38,13 +38,13 @@ body {
    2. REGOLE PER LE GRAFICHE E DECORAZIONI (Panna Dorato #cfbd8c)
    ========================================================================== */
 
-/* ALTO A SINISTRA: mongolfiera2.png (Ingrandita) */
+/* ALTO A SINISTRA: mongolfiera2.png (Resa più grande) */
 .decorazione-mongolfiera {
   position: fixed;
   top: 15px;
   left: 20px;
-  width: 200px;
-  height: 260px;
+  width: 240px;  /* Ingrandita */
+  height: 310px; /* Ingrandita */
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/mongolfiera2.png') no-repeat top left / contain;
@@ -90,13 +90,13 @@ body {
   mask: url('../image/valige.png') no-repeat bottom right / contain;
 }
 
-/* TAZZA: tazza.png (Abbassata per poggiare sulla valigia) */
+/* TAZZA: tazza.png (Più grande e posizionata poco più giù) */
 .decorazione-tazza {
   position: fixed;
-  bottom: 260px; /* Abbassata ulteriormente */
-  right: 118px;  
-  width: 55px;
-  height: 55px;
+  bottom: 220px; /* Spostata poco più giù */
+  right: 110px;  
+  width: 75px;   /* Ingrandita */
+  height: 75px;  /* Ingrandita */
   z-index: 2;    /* Sopra le valigie */
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/tazza.png') no-repeat center / contain;
@@ -320,15 +320,15 @@ body {
   }
 
   .decorazione-mongolfiera {
-    width: 100px;
-    height: 130px;
+    width: 120px;
+    height: 155px;
   }
 
   .decorazione-tazza {
-    bottom: 120px;
-    right: 50px;
-    width: 35px;
-    height: 35px;
+    bottom: 100px;
+    right: 45px;
+    width: 45px;
+    height: 45px;
   }
 
   .title-container::before,
