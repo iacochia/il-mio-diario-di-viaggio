@@ -35,24 +35,39 @@ body {
 }
 
 /* ==========================================================================
-   2. REGOLE GRAFICHE (Compatibili sia con la vecchia che nuova struttura HTML)
+   2. REGOLE PER LE GRAFICHE E DECORAZIONI (Panna Dorato #cfbd8c)
    ========================================================================== */
 
-/* ALTO A DESTRA: pianta3.png (Attaccata al bordo dello schermo) */
+/* ALTO A SINISTRA: mongolfiera1.png */
+.decorazione-mongolfiera,
+body::before {
+  content: "";
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 110px;
+  height: 140px;
+  z-index: 1;
+  background-color: var(--testo-principale);
+  -webkit-mask: url('../image/mongolfiera1.png') no-repeat top left / contain;
+  mask: url('../image/mongolfiera1.png') no-repeat top left / contain;
+}
+
+/* ALTO A DESTRA: pianta3.png (Più grande e attaccata al bordo) */
 .decorazione-pianta,
 .decorazione-alto-destra {
   position: fixed;
   top: 0;
   right: 0;
-  width: 180px;
-  height: 180px;
+  width: 230px;
+  height: 230px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/pianta3.png') no-repeat top right / contain;
   mask: url('../image/pianta3.png') no-repeat top right / contain;
 }
 
-/* BASSO A SINISTRA: luce1.png (Grande) */
+/* BASSO A SINISTRA: luce1.png */
 .decorazione-luce,
 .decorazione-basso-sinistra {
   position: fixed;
@@ -66,7 +81,7 @@ body {
   mask: url('../image/luce1.png') no-repeat bottom left / contain;
 }
 
-/* BASSO A DESTRA: valige.png (Altezza 240px) */
+/* BASSO A DESTRA: valige.png */
 .decorazione-valige,
 .decorazione-inchiostro {
   position: fixed;
@@ -80,36 +95,91 @@ body {
   mask: url('../image/valige.png') no-repeat bottom right / contain;
 }
 
-/* TAZZA: tazza.png (Posizionata in alto a destra a filo con la fine delle valigie) */
+/* TAZZA: tazza.png (Spostata più a sinistra e in basso, appoggiata sulla valigia) */
 .decorazione-tazza,
 body::after {
   content: "";
   position: fixed;
-  bottom: 240px; /* Coincide esattamente con l'altezza superiore delle valigie (240px) */
-  right: 15px;   /* Più a destra, sopra il lato destro delle valigie */
-  width: 65px;   /* Dimensione contenuta */
-  height: 65px;
-  z-index: 1;
+  bottom: 195px; /* Abbassata per toccare la valigia */
+  right: 65px;   /* Spostata più a sinistra sopra la superficie della valigia */
+  width: 55px;   /* Dimensione naturale per stare bene sulla valigia */
+  height: 55px;
+  z-index: 2;    /* Sopra le valigie */
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/tazza.png') no-repeat center / contain;
   mask: url('../image/tazza.png') no-repeat center / contain;
 }
 
-/* LUCI SOTTO IL TITOLO: Più piccole (Altezza ridotta a 30px) */
+/* ==========================================================================
+   3. INTESTAZIONE, TITOLO CON TIMBRI ED ELEMENTI LUCI
+   ========================================================================== */
+.site-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-/* Caso 1: Struttura a 3 div (divisore-luci-container) */
+/* Contenitore flessibile per titolo e timbri ai lati */
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+/* TIMBRO 2 (A SINISTRA DEL TITOLO) */
+.timbro-sinistra,
+.title-container::before {
+  content: "";
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  background-color: var(--testo-principale);
+  -webkit-mask: url('../image/timbro2.png') no-repeat center / contain;
+  mask: url('../image/timbro2.png') no-repeat center / contain;
+}
+
+/* TIMBRO 1 (A DESTRA DEL TITOLO) */
+.timbro-destra,
+.title-container::after {
+  content: "";
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  background-color: var(--testo-principale);
+  -webkit-mask: url('../image/timbro1.png') no-repeat center / contain;
+  mask: url('../image/timbro1.png') no-repeat center / contain;
+}
+
+.site-title {
+  font-size: 2.8rem;
+  font-weight: normal;
+  color: var(--testo-principale);
+  letter-spacing: 1px;
+}
+
+.site-subtitle {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--testo-secondario);
+  margin-bottom: 15px;
+}
+
+/* LUCI SOTTO IL TITOLO (Molto più piccole: altezza 20px) */
 .divisore-luci-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  max-width: 360px; /* Larghezza ridotta per rimpicciolire */
+  max-width: 260px;
   width: 100%;
-  margin: 12px auto 0 auto;
+  margin: 10px auto 0 auto;
 }
 
 .luci-elemento {
-  height: 30px; /* Più piccole */
+  height: 20px;
   flex: 1;
   background-color: var(--testo-principale);
 }
@@ -129,13 +199,12 @@ body::after {
   mask: url('../image/luci3.png') no-repeat center / contain;
 }
 
-/* Caso 2: Struttura a singolo div (divisore-decorativo) */
 .divisore-decorativo {
   position: relative;
-  max-width: 360px;
+  max-width: 260px;
   width: 100%;
-  height: 30px; /* Più piccole */
-  margin: 12px auto 0 auto;
+  height: 20px;
+  margin: 10px auto 0 auto;
   background-color: var(--testo-principale);
   -webkit-mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
   mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
@@ -152,28 +221,8 @@ body::after {
 }
 
 /* ==========================================================================
-   3. INTESTAZIONE E GRIGLIA POST
+   4. GRIGLIA POST E MODALE
    ========================================================================== */
-.site-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.site-title {
-  font-size: 2.8rem;
-  font-weight: normal;
-  color: var(--testo-principale);
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
-
-.site-subtitle {
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--testo-secondario);
-  margin-bottom: 15px;
-}
-
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -288,7 +337,7 @@ body::after {
 }
 
 /* ==========================================================================
-   4. ADATTAMENTO DISPOSITIVI MOBILI
+   5. ADATTAMENTO DISPOSITIVI MOBILI
    ========================================================================== */
 @media (max-width: 600px) {
   .decorazione-pianta,
@@ -302,17 +351,25 @@ body::after {
     opacity: 0.5;
   }
 
-  .decorazione-tazza,
-  body::after {
-    bottom: 110px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
+  body::before {
+    width: 60px;
+    height: 80px;
   }
 
-  .divisore-luci-container,
-  .divisore-decorativo {
-    max-width: 250px;
-    height: 22px;
+  body::after {
+    bottom: 100px;
+    right: 30px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .title-container::before,
+  .title-container::after {
+    width: 30px;
+    height: 30px;
+  }
+
+  .site-title {
+    font-size: 2rem;
   }
 }
