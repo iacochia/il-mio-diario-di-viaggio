@@ -1,12 +1,12 @@
 /* ==========================================================================
-   1. REGOLAZIONI BASE E SFONDO (Verde Salvia + Panna Dorato)
+   1. REGOLAZIONI BASE E SFONDO (Verde Salvia #595b3e + Panna Dorato #cfbd8c)
    ========================================================================== */
 :root {
   --bg-pagina: #595b3e;          /* Verde salvia scuro */
-  --bg-card: #484a32;            /* Verde salvia scuro per schede */
+  --bg-card: #484a32;            /* Schede di una tonalità più scura */
   --testo-principale: #cfbd8c;   /* Panna dorato per testi e decorazioni */
-  --testo-secondario: #b3a274;   /* Panna dorato morbido per sottotitoli e date */
-  --bordo-delicato: #6b6e4d;     /* Bordo ton-sur-ton */
+  --testo-secondario: #b3a274;   /* Panna dorato morbido per sottotitoli */
+  --bordo-delicato: #6b6e4d;     /* Bordo del medesimo tono */
 }
 
 * {
@@ -38,21 +38,17 @@ body {
    2. REGOLE PER LE GRAFICHE CON COLORE PANNA DORATO (#cfbd8c)
    ========================================================================== */
 
-.decorazione-pianta,
-.decorazione-luce,
-.decorazione-valige,
-.decorazione-tazza,
-.luci-elemento {
+.decorazione-alto-destra,
+.decorazione-basso-sinistra,
+.decorazione-inchiostro,
+.decorazione-tazza-sola,
+.divisore-decorativo {
   background-color: var(--testo-principale);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  mask-size: contain;
   display: block;
 }
 
-/* ALTO A DESTRA: pianta3.png (combacia con il bordo della schermata) */
-.decorazione-pianta {
+/* ALTO A DESTRA: pianta3.png (combacia esattamente con il bordo dello schermo) */
+.decorazione-alto-destra {
   position: fixed;
   top: 0;
   right: 0;
@@ -61,12 +57,16 @@ body {
   z-index: 1;
   -webkit-mask-image: url('../image/pianta3.png');
   mask-image: url('../image/pianta3.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
   -webkit-mask-position: top right;
   mask-position: top right;
 }
 
 /* BASSO A SINISTRA: luce1.png (più grande) */
-.decorazione-luce {
+.decorazione-basso-sinistra {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -75,12 +75,16 @@ body {
   z-index: 1;
   -webkit-mask-image: url('../image/luce1.png');
   mask-image: url('../image/luce1.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
   -webkit-mask-position: bottom left;
   mask-position: bottom left;
 }
 
 /* BASSO A DESTRA: valige.png (più grande) */
-.decorazione-valige {
+.decorazione-inchiostro {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -89,59 +93,55 @@ body {
   z-index: 1;
   -webkit-mask-image: url('../image/valige.png');
   mask-image: url('../image/valige.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
   -webkit-mask-position: bottom right;
   mask-position: bottom right;
 }
 
-/* SOPRA A VALIGE: tazza.png (più piccola e spostata più a sinistra) */
-.decorazione-tazza {
+/* TAZZA: tazza.png (piccola e più a sinistra sopra le valigie) */
+.decorazione-basso-sinistra::after,
+.site-container::after {
+  content: "";
   position: fixed;
   bottom: 180px;
   right: 170px;
   width: 70px;
   height: 70px;
   z-index: 1;
+  background-color: var(--testo-principale);
   -webkit-mask-image: url('../image/tazza.png');
   mask-image: url('../image/tazza.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
   -webkit-mask-position: center;
   mask-position: center;
 }
 
-/* FASCIA DIVISORIA LUCI (luci1.png - luci2.png - luci3.png) */
-.divisore-luci-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+/* SOTTO IL TITOLO: Tre luci affiancate (luci1.png, luci2.png, luci3.png) */
+.divisore-decorativo {
+  position: relative;
   max-width: 500px;
   width: 100%;
-  margin: 15px auto 0 auto;
-}
-
-.luci-elemento {
   height: 45px;
-  flex: 1;
+  margin: 15px auto 0 auto;
+  -webkit-mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
+  mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
+  -webkit-mask-repeat: no-repeat, no-repeat, no-repeat;
+  mask-repeat: no-repeat, no-repeat, no-repeat;
+  -webkit-mask-size: 30% contain, 30% contain, 30% contain;
+  mask-size: 30% contain, 30% contain, 30% contain;
+  -webkit-mask-position: left center, center center, right center;
+  mask-position: left center, center center, right center;
 }
 
-.luci-1 {
-  -webkit-mask-image: url('../image/luci1.png');
-  mask-image: url('../image/luci1.png');
-  -webkit-mask-position: center;
-  mask-position: center;
-}
-
-.luci-2 {
-  -webkit-mask-image: url('../image/luci2.png');
-  mask-image: url('../image/luci2.png');
-  -webkit-mask-position: center;
-  mask-position: center;
-}
-
-.luci-3 {
-  -webkit-mask-image: url('../image/luci3.png');
-  mask-image: url('../image/luci3.png');
-  -webkit-mask-position: center;
-  mask-position: center;
+/* Nasconde il vecchio lampione non utilizzato */
+.decorazione-lampione-lungo {
+  display: none;
 }
 
 /* ==========================================================================
@@ -284,23 +284,22 @@ body {
    4. ADATTAMENTO DISPOSITIVI MOBILI
    ========================================================================== */
 @media (max-width: 600px) {
-  .decorazione-pianta,
-  .decorazione-luce,
-  .decorazione-valige {
+  .decorazione-alto-destra,
+  .decorazione-basso-sinistra,
+  .decorazione-inchiostro {
     width: 110px;
     height: 110px;
     opacity: 0.5;
   }
 
-  .decorazione-tazza {
+  .site-container::after {
     bottom: 100px;
     right: 80px;
     width: 45px;
     height: 45px;
   }
 
-  .divisore-luci-container {
+  .divisore-decorativo {
     max-width: 300px;
-    gap: 5px;
   }
 }
