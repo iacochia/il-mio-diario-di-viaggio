@@ -38,29 +38,26 @@ body {
    2. REGOLE PER LE GRAFICHE E DECORAZIONI (Panna Dorato #cfbd8c)
    ========================================================================== */
 
-/* ALTO A SINISTRA: mongolfiera1.png */
-.decorazione-mongolfiera,
-body::before {
-  content: "";
+/* ALTO A SINISTRA: mongolfiera2.png (Più grande e ben proporzionata) */
+.decorazione-mongolfiera {
   position: fixed;
   top: 15px;
-  left: 15px;
-  width: 110px;
-  height: 140px;
+  left: 20px;
+  width: 160px;
+  height: 220px;
   z-index: 1;
   background-color: var(--testo-principale);
-  -webkit-mask: url('../image/mongolfiera1.png') no-repeat top left / contain;
-  mask: url('../image/mongolfiera1.png') no-repeat top left / contain;
+  -webkit-mask: url('../image/mongolfiera2.png') no-repeat top left / contain;
+  mask: url('../image/mongolfiera2.png') no-repeat top left / contain;
 }
 
-/* ALTO A DESTRA: pianta3.png (Più grande e attaccata al bordo) */
-.decorazione-pianta,
+/* ALTO A DESTRA: pianta3.png (Molto più grande) */
 .decorazione-alto-destra {
   position: fixed;
   top: 0;
   right: 0;
-  width: 230px;
-  height: 230px;
+  width: 480px;
+  height: 480px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/pianta3.png') no-repeat top right / contain;
@@ -68,13 +65,12 @@ body::before {
 }
 
 /* BASSO A SINISTRA: luce1.png */
-.decorazione-luce,
 .decorazione-basso-sinistra {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 220px;
-  height: 350px;
+  width: 240px;
+  height: 420px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/luce1.png') no-repeat bottom left / contain;
@@ -82,28 +78,25 @@ body::before {
 }
 
 /* BASSO A DESTRA: valige.png */
-.decorazione-valige,
 .decorazione-inchiostro {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 240px;
-  height: 240px;
+  width: 270px;
+  height: 310px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/valige.png') no-repeat bottom right / contain;
   mask: url('../image/valige.png') no-repeat bottom right / contain;
 }
 
-/* TAZZA: tazza.png (Spostata più a sinistra e in basso, appoggiata sulla valigia) */
-.decorazione-tazza,
-body::after {
-  content: "";
+/* TAZZA: tazza.png (Spostata più a SINISTRA e più in ALTO per stare sopra la valigia) */
+.decorazione-tazza {
   position: fixed;
-  bottom: 195px; /* Abbassata per toccare la valigia */
-  right: 65px;   /* Spostata più a sinistra sopra la superficie della valigia */
-  width: 55px;   /* Dimensione naturale per stare bene sulla valigia */
-  height: 55px;
+  bottom: 295px; /* Alzata per appoggiarsi perfettamente sulla superficie in alto */
+  right: 125px;  /* Spostata più a sinistra verso il centro della valigia superiore */
+  width: 65px;
+  height: 65px;
   z-index: 2;    /* Sopra le valigie */
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/tazza.png') no-repeat center / contain;
@@ -123,17 +116,16 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   margin-bottom: 10px;
 }
 
 /* TIMBRO 2 (A SINISTRA DEL TITOLO) */
-.timbro-sinistra,
 .title-container::before {
   content: "";
   display: inline-block;
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   flex-shrink: 0;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/timbro2.png') no-repeat center / contain;
@@ -141,12 +133,11 @@ body::after {
 }
 
 /* TIMBRO 1 (A DESTRA DEL TITOLO) */
-.timbro-destra,
 .title-container::after {
   content: "";
   display: inline-block;
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   flex-shrink: 0;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/timbro1.png') no-repeat center / contain;
@@ -167,19 +158,18 @@ body::after {
   margin-bottom: 15px;
 }
 
-/* LUCI SOTTO IL TITOLO (Molto più piccole: altezza 20px) */
+/* LUCI SOTTO IL TITOLO (Molto più grandi e con fili sovrapposti e uniti) */
 .divisore-luci-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  max-width: 260px;
+  max-width: 650px; /* Allargato per ospitare luci più grandi */
   width: 100%;
   margin: 10px auto 0 auto;
 }
 
 .luci-elemento {
-  height: 20px;
+  height: 80px; /* Ingrandite notevolmente */
   flex: 1;
   background-color: var(--testo-principale);
 }
@@ -187,6 +177,7 @@ body::after {
 .luci-1 {
   -webkit-mask: url('../image/luci1.png') no-repeat center / contain;
   mask: url('../image/luci1.png') no-repeat center / contain;
+  margin-right: -30px; /* Sovrapposizione aggressiva per unire i fili */
 }
 
 .luci-2 {
@@ -197,27 +188,7 @@ body::after {
 .luci-3 {
   -webkit-mask: url('../image/luci3.png') no-repeat center / contain;
   mask: url('../image/luci3.png') no-repeat center / contain;
-}
-
-.divisore-decorativo {
-  position: relative;
-  max-width: 260px;
-  width: 100%;
-  height: 20px;
-  margin: 10px auto 0 auto;
-  background-color: var(--testo-principale);
-  -webkit-mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
-  mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
-  -webkit-mask-repeat: no-repeat, no-repeat, no-repeat;
-  mask-repeat: no-repeat, no-repeat, no-repeat;
-  -webkit-mask-size: 28% contain, 28% contain, 28% contain;
-  mask-size: 28% contain, 28% contain, 28% contain;
-  -webkit-mask-position: 5% center, 50% center, 95% center;
-  mask-position: 5% center, 50% center, 95% center;
-}
-
-.decorazione-lampione-lungo {
-  display: none;
+  margin-left: -30px; /* Sovrapposizione aggressiva per unire i fili */
 }
 
 /* ==========================================================================
@@ -340,33 +311,30 @@ body::after {
    5. ADATTAMENTO DISPOSITIVI MOBILI
    ========================================================================== */
 @media (max-width: 600px) {
-  .decorazione-pianta,
   .decorazione-alto-destra,
-  .decorazione-luce,
   .decorazione-basso-sinistra,
-  .decorazione-valige,
   .decorazione-inchiostro {
-    width: 110px;
-    height: 110px;
+    width: 150px;
+    height: 150px;
     opacity: 0.5;
   }
 
-  body::before {
-    width: 60px;
-    height: 80px;
+  .decorazione-mongolfiera {
+    width: 90px;
+    height: 120px;
   }
 
-  body::after {
-    bottom: 100px;
-    right: 30px;
-    width: 35px;
-    height: 35px;
+  .decorazione-tazza {
+    bottom: 140px;
+    right: 60px;
+    width: 40px;
+    height: 40px;
   }
 
   .title-container::before,
   .title-container::after {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
   }
 
   .site-title {
