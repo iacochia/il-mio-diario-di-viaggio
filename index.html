@@ -8,19 +8,29 @@
 </head>
 <body>
 
-  <!-- Elementi decorativi di sfondo (con le classi riconosciute dal CSS) -->
+  <!-- Elementi decorativi di sfondo -->
+  <div class="decorazione-mongolfiera"></div>
   <div class="decorazione-alto-destra"></div>
   <div class="decorazione-basso-sinistra"></div>
   <div class="decorazione-inchiostro"></div>
+  <div class="decorazione-tazza"></div>
 
   <div class="site-container">
     <!-- Intestazione -->
     <header class="site-header">
-      <h1 class="site-title">Il mio diario di viaggio</h1>
+      <!-- Contenitore con timbro1 a destra e timbro2 a sinistra -->
+      <div class="title-container">
+        <h1 class="site-title">Il mio diario di viaggio</h1>
+      </div>
+      
       <p class="site-subtitle">Appunti, storie e ricordi in giro per il mondo</p>
       
-      <!-- Divisore per le 3 luci combinate via CSS -->
-      <div class="divisore-decorativo"></div>
+      <!-- Divisore con luci1, luci2 e luci3 in versione ridotta -->
+      <div class="divisore-luci-container">
+        <div class="luci-elemento luci-1"></div>
+        <div class="luci-elemento luci-2"></div>
+        <div class="luci-elemento luci-3"></div>
+      </div>
     </header>
 
     <!-- Griglia dei post -->
