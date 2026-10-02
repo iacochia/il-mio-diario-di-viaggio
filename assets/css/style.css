@@ -6,7 +6,7 @@
   --bg-card: #484a32;            /* Schede di una tonalità più scura */
   --testo-principale: #cfbd8c;   /* Panna dorato per testi e decorazioni */
   --testo-secondario: #b3a274;   /* Panna dorato morbido per sottotitoli */
-  --bordo-delicato: #6b6e4d;     /* Bordo del medesimo tono */
+  --bordo-delicato: #6b6e4d;     /* Bordo ton-sur-ton */
 }
 
 * {
@@ -35,19 +35,10 @@ body {
 }
 
 /* ==========================================================================
-   2. REGOLE PER LE GRAFICHE CON COLORE PANNA DORATO (#cfbd8c)
+   2. REGOLE GRAFICHE (Utilizza la struttura HTML originale)
    ========================================================================== */
 
-.decorazione-alto-destra,
-.decorazione-basso-sinistra,
-.decorazione-inchiostro,
-.decorazione-tazza-sola,
-.divisore-decorativo {
-  background-color: var(--testo-principale);
-  display: block;
-}
-
-/* ALTO A DESTRA: pianta3.png (combacia esattamente con il bordo dello schermo) */
+/* ALTO A DESTRA: pianta3.png (Bordo schermo) */
 .decorazione-alto-destra {
   position: fixed;
   top: 0;
@@ -55,17 +46,12 @@ body {
   width: 180px;
   height: 180px;
   z-index: 1;
-  -webkit-mask-image: url('../image/pianta3.png');
-  mask-image: url('../image/pianta3.png');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-position: top right;
-  mask-position: top right;
+  background-color: var(--testo-principale);
+  -webkit-mask: url('../image/pianta3.png') no-repeat top right / contain;
+  mask: url('../image/pianta3.png') no-repeat top right / contain;
 }
 
-/* BASSO A SINISTRA: luce1.png (più grande) */
+/* BASSO A SINISTRA: luce1.png (Più grande) */
 .decorazione-basso-sinistra {
   position: fixed;
   bottom: 0;
@@ -73,17 +59,12 @@ body {
   width: 220px;
   height: 350px;
   z-index: 1;
-  -webkit-mask-image: url('../image/luce1.png');
-  mask-image: url('../image/luce1.png');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-position: bottom left;
-  mask-position: bottom left;
+  background-color: var(--testo-principale);
+  -webkit-mask: url('../image/luce1.png') no-repeat bottom left / contain;
+  mask: url('../image/luce1.png') no-repeat bottom left / contain;
 }
 
-/* BASSO A DESTRA: valige.png (più grande) */
+/* BASSO A DESTRA: valige.png (Più grande) */
 .decorazione-inchiostro {
   position: fixed;
   bottom: 0;
@@ -91,19 +72,13 @@ body {
   width: 240px;
   height: 240px;
   z-index: 1;
-  -webkit-mask-image: url('../image/valige.png');
-  mask-image: url('../image/valige.png');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-position: bottom right;
-  mask-position: bottom right;
+  background-color: var(--testo-principale);
+  -webkit-mask: url('../image/valige.png') no-repeat bottom right / contain;
+  mask: url('../image/valige.png') no-repeat bottom right / contain;
 }
 
-/* TAZZA: tazza.png (piccola e più a sinistra sopra le valigie) */
-.decorazione-basso-sinistra::after,
-.site-container::after {
+/* TAZZA: tazza.png (Sopra le valigie, più piccola e a sinistra) */
+body::after {
   content: "";
   position: fixed;
   bottom: 180px;
@@ -112,34 +87,29 @@ body {
   height: 70px;
   z-index: 1;
   background-color: var(--testo-principale);
-  -webkit-mask-image: url('../image/tazza.png');
-  mask-image: url('../image/tazza.png');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-position: center;
-  mask-position: center;
+  -webkit-mask: url('../image/tazza.png') no-repeat center / contain;
+  mask: url('../image/tazza.png') no-repeat center / contain;
 }
 
 /* SOTTO IL TITOLO: Tre luci affiancate (luci1.png, luci2.png, luci3.png) */
 .divisore-decorativo {
   position: relative;
-  max-width: 500px;
+  max-width: 450px;
   width: 100%;
   height: 45px;
   margin: 15px auto 0 auto;
+  background-color: var(--testo-principale);
   -webkit-mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
   mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
   -webkit-mask-repeat: no-repeat, no-repeat, no-repeat;
   mask-repeat: no-repeat, no-repeat, no-repeat;
   -webkit-mask-size: 30% contain, 30% contain, 30% contain;
   mask-size: 30% contain, 30% contain, 30% contain;
-  -webkit-mask-position: left center, center center, right center;
-  mask-position: left center, center center, right center;
+  -webkit-mask-position: 0% center, 50% center, 100% center;
+  mask-position: 0% center, 50% center, 100% center;
 }
 
-/* Nasconde il vecchio lampione non utilizzato */
+/* Disattiva elementi non usati dell'HTML originale */
 .decorazione-lampione-lungo {
   display: none;
 }
@@ -292,7 +262,7 @@ body {
     opacity: 0.5;
   }
 
-  .site-container::after {
+  body::after {
     bottom: 100px;
     right: 80px;
     width: 45px;
