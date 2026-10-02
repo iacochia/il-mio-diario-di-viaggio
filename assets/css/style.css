@@ -38,20 +38,20 @@ body {
    2. REGOLE PER LE GRAFICHE E DECORAZIONI (Panna Dorato #cfbd8c)
    ========================================================================== */
 
-/* ALTO A SINISTRA: mongolfiera2.png */
+/* ALTO A SINISTRA: mongolfiera2.png (Ingrandita) */
 .decorazione-mongolfiera {
   position: fixed;
   top: 15px;
   left: 20px;
-  width: 150px;
-  height: 200px;
+  width: 200px;
+  height: 260px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/mongolfiera2.png') no-repeat top left / contain;
   mask: url('../image/mongolfiera2.png') no-repeat top left / contain;
 }
 
-/* ALTO A DESTRA: pianta3.png (Rimpicciolita) */
+/* ALTO A DESTRA: pianta3.png */
 .decorazione-alto-destra {
   position: fixed;
   top: 0;
@@ -90,14 +90,14 @@ body {
   mask: url('../image/valige.png') no-repeat bottom right / contain;
 }
 
-/* TAZZA: tazza.png (Spostata più in basso per poggiarsi sulla valigia) */
+/* TAZZA: tazza.png (Abbassata per poggiare sulla valigia) */
 .decorazione-tazza {
   position: fixed;
-  bottom: 278px; /* Abbassata per combaciare perfettamente con la valigia */
-  right: 118px;  /* Posizionata sopra la valigia superiore */
+  bottom: 260px; /* Abbassata ulteriormente */
+  right: 118px;  
   width: 55px;
   height: 55px;
-  z-index: 2;    /* Posizionata sopra le valigie */
+  z-index: 2;    /* Sopra le valigie */
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/tazza.png') no-repeat center / contain;
   mask: url('../image/tazza.png') no-repeat center / contain;
@@ -158,7 +158,7 @@ body {
   margin-bottom: 15px;
 }
 
-/* LUCI SOTTO IL TITOLO (Leggermente più piccole, unite senza accavallarsi troppo) */
+/* LUCI SOTTO IL TITOLO */
 .divisore-luci-container {
   display: flex;
   justify-content: center;
@@ -169,7 +169,7 @@ body {
 }
 
 .luci-elemento {
-  height: 60px; /* Misura bilanciata */
+  height: 60px;
   flex: 1;
   background-color: var(--testo-principale);
 }
@@ -177,7 +177,7 @@ body {
 .luci-1 {
   -webkit-mask: url('../image/luci1.png') no-repeat center / contain;
   mask: url('../image/luci1.png') no-repeat center / contain;
-  margin-right: -12px; /* Sovrapposizione leggera per connettere i fili */
+  margin-right: -12px;
 }
 
 .luci-2 {
@@ -188,7 +188,7 @@ body {
 .luci-3 {
   -webkit-mask: url('../image/luci3.png') no-repeat center / contain;
   mask: url('../image/luci3.png') no-repeat center / contain;
-  margin-left: -12px; /* Sovrapposizione leggera per connettere i fili */
+  margin-left: -12px;
 }
 
 /* ==========================================================================
@@ -320,12 +320,12 @@ body {
   }
 
   .decorazione-mongolfiera {
-    width: 80px;
-    height: 100px;
+    width: 100px;
+    height: 130px;
   }
 
   .decorazione-tazza {
-    bottom: 130px;
+    bottom: 120px;
     right: 50px;
     width: 35px;
     height: 35px;
