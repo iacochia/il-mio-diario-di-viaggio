@@ -1,12 +1,12 @@
 /* ==========================================================================
-   1. REGOLAZIONI BASE E SFONDO (Borgogna + Panna)
+   1. REGOLAZIONI BASE E SFONDO (Verde Salvia + Panna Dorato)
    ========================================================================== */
 :root {
-  --bg-pagina: #5e0f1a;          /* Fondo Borgogna scuro */
-  --bg-card: #4a0c14;            /* Schede di una tonalità più scura per contrasto */
-  --testo-principale: #e6d7b9;   /* Panna chiaro per i testi */
-  --testo-secondario: #c9b99a;   /* Panna morbido per sottotitoli e date */
-  --bordo-delicato: #781825;     /* Bordo bordò moderato */
+  --bg-pagina: #595b3e;          /* Verde salvia scuro */
+  --bg-card: #484a32;            /* Verde salvia scuro per schede */
+  --testo-principale: #cfbd8c;   /* Panna dorato per testi e decorazioni */
+  --testo-secondario: #b3a274;   /* Panna dorato morbido per sottotitoli e date */
+  --bordo-delicato: #6b6e4d;     /* Bordo ton-sur-ton */
 }
 
 * {
@@ -35,7 +35,7 @@ body {
 }
 
 /* ==========================================================================
-   2. REGOLE PER LE GRAFICHE CON COLORE PANNA (#e6d7b9)
+   2. REGOLE PER LE GRAFICHE CON COLORE PANNA DORATO (#cfbd8c)
    ========================================================================== */
 
 .decorazione-piante,
@@ -96,7 +96,7 @@ body {
 /* SOPRA A VALIGE (tazza.png) */
 .decorazione-tazza {
   position: fixed;
-  bottom: 160px; /* Posizionata sopra la grafica delle valigie */
+  bottom: 160px;
   right: 25px;
   width: 100px;
   height: 100px;
@@ -164,7 +164,7 @@ body {
 .post-card:hover {
   transform: translateY(-4px);
   border-color: var(--testo-principale);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
 .post-card .post-date {
@@ -218,7 +218,7 @@ body {
   overflow-y: auto;
   padding: 35px 30px;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .close-btn {
