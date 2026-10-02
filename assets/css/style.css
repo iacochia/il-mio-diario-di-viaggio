@@ -38,26 +38,26 @@ body {
    2. REGOLE PER LE GRAFICHE E DECORAZIONI (Panna Dorato #cfbd8c)
    ========================================================================== */
 
-/* ALTO A SINISTRA: mongolfiera2.png (Più grande e ben proporzionata) */
+/* ALTO A SINISTRA: mongolfiera2.png */
 .decorazione-mongolfiera {
   position: fixed;
   top: 15px;
   left: 20px;
-  width: 160px;
-  height: 220px;
+  width: 150px;
+  height: 200px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/mongolfiera2.png') no-repeat top left / contain;
   mask: url('../image/mongolfiera2.png') no-repeat top left / contain;
 }
 
-/* ALTO A DESTRA: pianta3.png (Molto più grande) */
+/* ALTO A DESTRA: pianta3.png (Rimpicciolita) */
 .decorazione-alto-destra {
   position: fixed;
   top: 0;
   right: 0;
-  width: 480px;
-  height: 480px;
+  width: 340px;
+  height: 340px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/pianta3.png') no-repeat top right / contain;
@@ -69,8 +69,8 @@ body {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 240px;
-  height: 420px;
+  width: 220px;
+  height: 380px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/luce1.png') no-repeat bottom left / contain;
@@ -82,22 +82,22 @@ body {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 270px;
-  height: 310px;
+  width: 260px;
+  height: 300px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/valige.png') no-repeat bottom right / contain;
   mask: url('../image/valige.png') no-repeat bottom right / contain;
 }
 
-/* TAZZA: tazza.png (Spostata più a SINISTRA e più in ALTO per stare sopra la valigia) */
+/* TAZZA: tazza.png (Spostata più in basso per poggiarsi sulla valigia) */
 .decorazione-tazza {
   position: fixed;
-  bottom: 295px; /* Alzata per appoggiarsi perfettamente sulla superficie in alto */
-  right: 125px;  /* Spostata più a sinistra verso il centro della valigia superiore */
-  width: 65px;
-  height: 65px;
-  z-index: 2;    /* Sopra le valigie */
+  bottom: 278px; /* Abbassata per combaciare perfettamente con la valigia */
+  right: 118px;  /* Posizionata sopra la valigia superiore */
+  width: 55px;
+  height: 55px;
+  z-index: 2;    /* Posizionata sopra le valigie */
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/tazza.png') no-repeat center / contain;
   mask: url('../image/tazza.png') no-repeat center / contain;
@@ -124,8 +124,8 @@ body {
 .title-container::before {
   content: "";
   display: inline-block;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   flex-shrink: 0;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/timbro2.png') no-repeat center / contain;
@@ -136,8 +136,8 @@ body {
 .title-container::after {
   content: "";
   display: inline-block;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   flex-shrink: 0;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/timbro1.png') no-repeat center / contain;
@@ -158,18 +158,18 @@ body {
   margin-bottom: 15px;
 }
 
-/* LUCI SOTTO IL TITOLO (Molto più grandi e con fili sovrapposti e uniti) */
+/* LUCI SOTTO IL TITOLO (Leggermente più piccole, unite senza accavallarsi troppo) */
 .divisore-luci-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 650px; /* Allargato per ospitare luci più grandi */
+  max-width: 540px;
   width: 100%;
-  margin: 10px auto 0 auto;
+  margin: 12px auto 0 auto;
 }
 
 .luci-elemento {
-  height: 80px; /* Ingrandite notevolmente */
+  height: 60px; /* Misura bilanciata */
   flex: 1;
   background-color: var(--testo-principale);
 }
@@ -177,7 +177,7 @@ body {
 .luci-1 {
   -webkit-mask: url('../image/luci1.png') no-repeat center / contain;
   mask: url('../image/luci1.png') no-repeat center / contain;
-  margin-right: -30px; /* Sovrapposizione aggressiva per unire i fili */
+  margin-right: -12px; /* Sovrapposizione leggera per connettere i fili */
 }
 
 .luci-2 {
@@ -188,7 +188,7 @@ body {
 .luci-3 {
   -webkit-mask: url('../image/luci3.png') no-repeat center / contain;
   mask: url('../image/luci3.png') no-repeat center / contain;
-  margin-left: -30px; /* Sovrapposizione aggressiva per unire i fili */
+  margin-left: -12px; /* Sovrapposizione leggera per connettere i fili */
 }
 
 /* ==========================================================================
@@ -314,27 +314,27 @@ body {
   .decorazione-alto-destra,
   .decorazione-basso-sinistra,
   .decorazione-inchiostro {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     opacity: 0.5;
   }
 
   .decorazione-mongolfiera {
-    width: 90px;
-    height: 120px;
+    width: 80px;
+    height: 100px;
   }
 
   .decorazione-tazza {
-    bottom: 140px;
-    right: 60px;
-    width: 40px;
-    height: 40px;
+    bottom: 130px;
+    right: 50px;
+    width: 35px;
+    height: 35px;
   }
 
   .title-container::before,
   .title-container::after {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
 
   .site-title {
