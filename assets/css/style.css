@@ -35,10 +35,11 @@ body {
 }
 
 /* ==========================================================================
-   2. REGOLE GRAFICHE (Utilizza la struttura HTML originale)
+   2. REGOLE GRAFICHE (Compatibili sia con la vecchia che nuova struttura HTML)
    ========================================================================== */
 
-/* ALTO A DESTRA: pianta3.png (Bordo schermo) */
+/* ALTO A DESTRA: pianta3.png (Attaccata al bordo dello schermo) */
+.decorazione-pianta,
 .decorazione-alto-destra {
   position: fixed;
   top: 0;
@@ -51,7 +52,8 @@ body {
   mask: url('../image/pianta3.png') no-repeat top right / contain;
 }
 
-/* BASSO A SINISTRA: luce1.png (Più grande) */
+/* BASSO A SINISTRA: luce1.png (Grande) */
+.decorazione-luce,
 .decorazione-basso-sinistra {
   position: fixed;
   bottom: 0;
@@ -64,7 +66,8 @@ body {
   mask: url('../image/luce1.png') no-repeat bottom left / contain;
 }
 
-/* BASSO A DESTRA: valige.png (Più grande) */
+/* BASSO A DESTRA: valige.png (Altezza 240px) */
+.decorazione-valige,
 .decorazione-inchiostro {
   position: fixed;
   bottom: 0;
@@ -77,39 +80,73 @@ body {
   mask: url('../image/valige.png') no-repeat bottom right / contain;
 }
 
-/* TAZZA: tazza.png (Sopra le valigie, più piccola e a sinistra) */
+/* TAZZA: tazza.png (Posizionata in alto a destra a filo con la fine delle valigie) */
+.decorazione-tazza,
 body::after {
   content: "";
   position: fixed;
-  bottom: 180px;
-  right: 170px;
-  width: 70px;
-  height: 70px;
+  bottom: 240px; /* Coincide esattamente con l'altezza superiore delle valigie (240px) */
+  right: 15px;   /* Più a destra, sopra il lato destro delle valigie */
+  width: 65px;   /* Dimensione contenuta */
+  height: 65px;
   z-index: 1;
   background-color: var(--testo-principale);
   -webkit-mask: url('../image/tazza.png') no-repeat center / contain;
   mask: url('../image/tazza.png') no-repeat center / contain;
 }
 
-/* SOTTO IL TITOLO: Tre luci affiancate (luci1.png, luci2.png, luci3.png) */
+/* LUCI SOTTO IL TITOLO: Più piccole (Altezza ridotta a 30px) */
+
+/* Caso 1: Struttura a 3 div (divisore-luci-container) */
+.divisore-luci-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 360px; /* Larghezza ridotta per rimpicciolire */
+  width: 100%;
+  margin: 12px auto 0 auto;
+}
+
+.luci-elemento {
+  height: 30px; /* Più piccole */
+  flex: 1;
+  background-color: var(--testo-principale);
+}
+
+.luci-1 {
+  -webkit-mask: url('../image/luci1.png') no-repeat center / contain;
+  mask: url('../image/luci1.png') no-repeat center / contain;
+}
+
+.luci-2 {
+  -webkit-mask: url('../image/luci2.png') no-repeat center / contain;
+  mask: url('../image/luci2.png') no-repeat center / contain;
+}
+
+.luci-3 {
+  -webkit-mask: url('../image/luci3.png') no-repeat center / contain;
+  mask: url('../image/luci3.png') no-repeat center / contain;
+}
+
+/* Caso 2: Struttura a singolo div (divisore-decorativo) */
 .divisore-decorativo {
   position: relative;
-  max-width: 450px;
+  max-width: 360px;
   width: 100%;
-  height: 45px;
-  margin: 15px auto 0 auto;
+  height: 30px; /* Più piccole */
+  margin: 12px auto 0 auto;
   background-color: var(--testo-principale);
   -webkit-mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
   mask-image: url('../image/luci1.png'), url('../image/luci2.png'), url('../image/luci3.png');
   -webkit-mask-repeat: no-repeat, no-repeat, no-repeat;
   mask-repeat: no-repeat, no-repeat, no-repeat;
-  -webkit-mask-size: 30% contain, 30% contain, 30% contain;
-  mask-size: 30% contain, 30% contain, 30% contain;
-  -webkit-mask-position: 0% center, 50% center, 100% center;
-  mask-position: 0% center, 50% center, 100% center;
+  -webkit-mask-size: 28% contain, 28% contain, 28% contain;
+  mask-size: 28% contain, 28% contain, 28% contain;
+  -webkit-mask-position: 5% center, 50% center, 95% center;
+  mask-position: 5% center, 50% center, 95% center;
 }
 
-/* Disattiva elementi non usati dell'HTML originale */
 .decorazione-lampione-lungo {
   display: none;
 }
@@ -254,22 +291,28 @@ body::after {
    4. ADATTAMENTO DISPOSITIVI MOBILI
    ========================================================================== */
 @media (max-width: 600px) {
+  .decorazione-pianta,
   .decorazione-alto-destra,
+  .decorazione-luce,
   .decorazione-basso-sinistra,
+  .decorazione-valige,
   .decorazione-inchiostro {
     width: 110px;
     height: 110px;
     opacity: 0.5;
   }
 
+  .decorazione-tazza,
   body::after {
-    bottom: 100px;
-    right: 80px;
-    width: 45px;
-    height: 45px;
+    bottom: 110px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
   }
 
+  .divisore-luci-container,
   .divisore-decorativo {
-    max-width: 300px;
+    max-width: 250px;
+    height: 22px;
   }
 }
